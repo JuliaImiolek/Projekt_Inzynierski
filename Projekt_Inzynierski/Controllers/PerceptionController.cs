@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Projekt_Inzynierski.Controllers
 {
-    public class CoordinationController : Controller
+    public class PerceptionController : Controller
     {
-        public IActionResult Index()
+        public IActionResult ReactionTimeTest()
         {
             return View();
         }
