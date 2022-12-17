@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "ColorGuess";
+}
+
+<h1>ColorGuess</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color Guess</title>
+    <link rel="stylesheet" href="~/css/colorGuessStyles.css">
+    <link rel="icon" href="~/img/colorGuess/fav.png">
+</head>
+
+<body>
+    <img src="~/img/colorGuess/correct.svg" alt="" id="checkmark">
+    <img src="~/img/colorGuess/incorrect.svg" alt="" id="wrong">
+    <div class="top">
+        <button id="start" onclick="startGame()">Start</button>
+        <div id="color1" class="colorText color1"></div>
+        <div id="color2" class="colorText color2"></div>
+    </div>
+    <div class="bottom">
+        <div class="row">
+            <div id="Blue" class="color blue"></div>
+            <div id="Red" class="color red"></div>
+        </div>
+        <div class="row">
+            <div id="Green" class="color green"></div>
+            <div id="Yellow" class="color yellow"></div>
+        </div> 
+        <div class="row">
+            <span id="correct"></span>
+            <span id="time"></span>
+        </div>
+    </div>
+    
+
+    <script src="~/js/colorGuessScript.js"></script>
+</body>
+</html>
