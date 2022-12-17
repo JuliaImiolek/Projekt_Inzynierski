@@ -12,5 +12,26 @@ namespace Projekt_Inzynierski.Controllers
         {
             return View();
         }
+        public IActionResult LevelEasy()
+        {
+            return View();
+        }
+        public IActionResult LevelMedium()
+        {
+            return View();
+        }
+        public IActionResult LevelHard()
+        {
+            return View();
+        }
+        public IActionResult MediumShapes()
+        {
+            return View();
+        }
+        public IActionResult TinyShapes()
+        {
+            return View();
+        }
+
     }
 }

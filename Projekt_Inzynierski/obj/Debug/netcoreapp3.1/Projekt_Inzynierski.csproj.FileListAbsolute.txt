@@ -430,3 +430,10 @@ C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\bin\Debug\ne
 C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Memory\Memory.cshtml.g.cs
 C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Perception\ReactionTimeTest.cshtml.g.cs
+C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Coordination\Index.cshtml.g.cs
+C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Coordination\LevelEasy.cshtml.g.cs
+C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Coordination\LevelMedium.cshtml.g.cs
+C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\LevelHard.cshtml.g.cs
+C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Coordination\MediumShapes.cshtml.g.cs
+C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Coordination\TinyShapes.cshtml.g.cs
+C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Coordination\LevelHard.cshtml.g.cs
