@@ -429,3 +429,4 @@ C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\bin\Debug\ne
 C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Memory\Memory.cshtml.g.cs
+C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Coordination\ReactionTimeTest.cshtml.g.cs

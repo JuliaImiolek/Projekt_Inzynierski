@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "ReactionTimeTest";
+}
+
+<h1>ReactionTimeTest</h1>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Reaction time test 6</title>
+    <link rel="stylesheet" href="~/css/reactionTimeTestStyles.css">
+
+</head>
+<body>
+
+    <div id="text">
+        <h1>Click on the <span class="gr">GREEN</span> box as fast as u can :)</h1>
+        <h4>Before you start, please enter your age and the device you are using. </h4>
+        <h5> Click "Save Game" to save your best result.</h5>
+    </div>
+    <div>
+        <input id="userAge" type="number" placeholder="Type your age">
+        <input id="userDevice" type="text" placeholder="What is your device?">
+    </div>
+    <div>
+        <button class="s" onclick="gameStart()" type="button">Start Game</button>
+        <button class="s" id="SaveGame" type="button">Save Game</button>
+    </div>
+    <p class="p">Reaction time: <span id="time">0</span>s</p>
+    <h1> </h1>
+    <div id="box"></div>
+
+    <script src="~/js/reactionTimeTestScript.js"></script>
+</body>
+</html>
+
