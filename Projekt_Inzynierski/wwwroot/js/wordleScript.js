@@ -1,4 +1,8 @@
-﻿const dictionary = ['earth', 'plane', 'crane', 'audio', 'house'];
+﻿import { testDictionary, realDictionary } from './wordleDictionary.js';
+//for testing purposes
+console.log('test dictionary:', testDictionary);
+
+const dictionary = realDictionary;
 const state = {
     secret: dictionary[Math.floor(Math.random() * dictionary.length)],
     grid: Array(6)
