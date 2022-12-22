@@ -1,4 +1,6 @@
-﻿var createdTime;
+﻿var clickedInt = 0;
+var clicked = document.getElementById("correct");
+var createdTime;
 var clickedTime;
 var reactionTime;
 var testName = "Medium";
@@ -57,10 +59,52 @@ function makebox() {
 
 
 }
+
+var countdown = 30;
+function timer() {
+    document.getElementById("stoper").innerHTML = countdown;
+    if (countdown == 0) {
+        clearInterval(timer);
+        var min = 10000;
+        for (var i = 0; i < list.length; i++) {
+
+            if (min >= list[i]) {
+                min = list[i];
+            }
+        }
+        alert("Congratulations! Score: " + clickedInt + " Best Reaction time: " + min + "s");
+
+        reactionSpan = min * 1000;
+        $.ajax({
+            url: '@Url.Action("AddRecordToReactionTest", "ReactionTest")',
+            type: 'POST',
+            data: {
+                "span": reactionSpan,
+                "testName": testName,
+                "clicked": clickedInt
+            },
+            success: function (response) {
+                var Data = JSON.parse(response);
+                alert("Your best reaction time has been saved!");
+            },
+            failure: function () {
+                var Data = JSON.parse(response);
+                alert(response);
+            },
+            error: function () {
+                var Data = JSON.parse(response);
+                alert(response);
+            }
+
+        });
+        location.reload();
+    }
+    countdown--;
+}
+
 function gameStart() {
+    setInterval(timer, 1000);
     var a = 0;
-    document.getElementById("userAge").style.display = 'none';
-    document.getElementById("userDevice").style.display = 'none';
     document.getElementById("text").style.display = 'none';
     document.getElementById('box').onclick = function () {
         this.style.display = "none";
@@ -69,45 +113,11 @@ function gameStart() {
         document.getElementById('time').innerHTML = reactionTime;
         list[a] = reactionTime;
         a++;
-        makebox();
+        clickedInt++;
+        if (countdown > 0) {
+            makebox();
+        }
+        clicked.innerHTML = clickedInt;
     }
     makebox();
 }
-
-document.getElementById("SaveGame").onclick = function () {
-
-    var min = 10000;
-    for (var i = 0; i < list.length; i++) {
-
-        if (min >= list[i]) {
-            min = list[i];
-        }
-    }
-    var userAge = document.getElementById("userAge").value;
-    var userDevice = document.getElementById("userDevice").value;
-    console.log(userAge);
-    reactionSpan = min * 1000;
-    $.ajax({
-        url: '@Url.Action("AddRecordToReactionTest", "ReactionTest")',
-        type: 'POST',
-        data: {
-            "span": reactionSpan,
-            "testName": testName,
-            "userAge": userAge,
-            "userDevice": userDevice
-        },
-        success: function (response) {
-            var Data = JSON.parse(response);
-            alert("Your best reaction time has been saved!");
-        },
-        failure: function () {
-            var Data = JSON.parse(response);
-            alert(response);
-        },
-        error: function () {
-            var Data = JSON.parse(response);
-            alert(response);
-        }
-
-    });
-};

@@ -3,44 +3,31 @@
     ViewData["Title"] = "TinyShapes";
 }
 
-<h1>TinyShapes</h1>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Reaction time test 5</title>
-    <link rel="stylesheet" href="~/css/CCLevelEasyStyles.css">
+    <title>Coordination challange lvl 5</title>
+    <link rel="stylesheet" href="~/css/coordinationChallangeStyles.css">
     <style>
         body {
-            background-color: rgba(124, 57, 91, 0.5);
-        }
-
-        .p {
-            text-align: center;
-            color: #000000;
-            opacity: 1;
-            font-family: Arial;
-            font-weight: bold;
+            background-color: rgba(152, 14, 19, 0.5);
         }
     </style>
 
 </head>
 <body>
     <div id="text">
-        <h1>Reaction Game</h1>
-        <h2>Click as fast as you can :)</h2>
+        <h1>Coordination challange</h1>
+        <h2>Click as fast as you can in 30 sec :)</h2>
         <h2>Speed level: medium | Shapes size: tiny</h2>
-        <h4>Before you start, please enter your age and the device you are using. </h4>
-        <h5> Click "Save Game" to save your best result.</h5>
-    </div>
-    <div>
-        <input id="userAge" type="number" placeholder="Type your age">
-        <input id="userDevice" type="text" placeholder="What is your device?">
-    </div>
-    <div>
         <button class="s" onclick="gameStart()" type="button">Start Game</button>
-        <button class="s" id="SaveGame" type="button">Save Game</button>
     </div>
-    <p class="p">Reaction time: <span id="time">0</span>s</p>
+    
+    <div>
+        <p class="p">Number of clicks: <span id="correct"></span> </p>
+        <p class="p">Reaction time: <span id="time">0</span>s</p>
+        <p class="p">Time: <span id="stoper"></span> </p>
+    </div>
     <div id="box"></div>
     <script src="~/js/CCTinyShapesScript.js"></script>
 </body>

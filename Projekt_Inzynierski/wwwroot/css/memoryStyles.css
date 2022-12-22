@@ -4,10 +4,15 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bound: 100px;
+}
+
 body {
-    /*    height: 100vh;
-    display: flex;
-    background: #060AB2;*/
+    background-color: rgba(80,176,239,0.41);
+    color: #000000;
+    opacity: 1;
+    font-family: Arial;
     margin-bottom: 60px;
 }
 
@@ -53,4 +58,16 @@ body {
 
 .front-face {
     transform: rotateY(180deg);
+}
+
+.text {
+    text-align: center;
+}
+
+.p {
+    text-align: center;
+    color: #000000;
+    opacity: 1;
+    font-family: Arial;
+    font-weight: bold;
 }

@@ -3,8 +3,7 @@
     ViewData["Title"] = "Memory";
 }
 
-<h1>Memory</h1>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
 
@@ -14,7 +13,13 @@
 </head>
 
 <body>
-
+    <div class="text" id="text">
+        <h1>Memory game</h1>
+        <h2>Flip the cards and match the pairs.</h2>
+        <h2>Find all the pairs as fast as you can!</h2>
+        <p class="p">Game time: <span id="time">0</span>s</p>
+        <p class="p">Number of clicks: <span id="numOfClick">0</span></p>
+    </div>
 
     <section class="memory-game">
         <div class="memory-card" data-framework="Logo_KIiAM">
@@ -74,3 +79,4 @@
 
     <script src="~/js/memoryScript.js"></script>
 </body>
+</html>

@@ -1,15 +1,21 @@
 ﻿const cards = document.querySelectorAll('.memory-card');
-
+var flippedCards = 0
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+var startedTime;
+var endTime;
+var gameTime;
+var numOfClick = 0;
 
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
-
+    numOfClick++;
     this.classList.add('flip');
-
+    if (numOfClick === 1) {
+        startedTime = Date.now();
+    }
     if (!hasFlippedCard) {
         // first click
         hasFlippedCard = true;
@@ -23,17 +29,27 @@ function flipCard() {
 
     checkForMatch();
 }
-
 function checkForMatch() {
     let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
-    isMatch ? disableCards() : unflipCards();
+    if (isMatch) {
+        disableCards();
+        flippedCards = flippedCards + 2;
+        if (flippedCards === 12) {
+            endTime = Date.now();
+            gameTime = (endTime - startedTime) / 1000;
+            document.getElementById('time').innerHTML = gameTime;
+            document.getElementById('numOfClick').innerHTML = numOfClick;
+            alert("Congratulations!");
+        }
+    } else {
+        unflipCards();
+    }
 }
 
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-
     resetBoard();
 }
 
@@ -45,7 +61,7 @@ function unflipCards() {
         secondCard.classList.remove('flip');
 
         resetBoard();
-    }, 1500);
+    }, 1000);
 }
 
 function resetBoard() {

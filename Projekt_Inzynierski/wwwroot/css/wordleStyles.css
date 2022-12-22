@@ -1,6 +1,11 @@
 ﻿html,
 body {
-    background: var(--default);
+    background-color: rgba(115,120,132,0.71);
+    text-align: center;
+    color: #000000;
+    opacity: 1;
+    font-family: Arial;
+    margin-bottom: 60px;
 }
 
 :root {

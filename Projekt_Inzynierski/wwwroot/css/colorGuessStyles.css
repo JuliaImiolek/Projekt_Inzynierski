@@ -5,10 +5,32 @@
     overflow-x: none;
 }
 
-body {
-    margin: auto;
+:root {
+    --bound: 100px;
 }
 
+body {
+    background-color: rgba(230,207,113,0.11);
+    text-align: center;
+    color: #000000;
+    opacity: 1;
+    font-family: Arial;
+    margin-bottom: 60px;
+}
+
+.p {
+    text-align: center;
+    color: #000000;
+    opacity: 1;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.s {
+    background-color: rgb(0, 255, 13);
+    font-family: Arial;
+    font-weight: bold;
+}
 
 .bottom {
     margin-top: 1rem;
@@ -54,7 +76,9 @@ body {
 }
 
 .colorText {
-    font: 3rem sans-serif;
+    font-family: Arial;
+    font-weight: bold;
+    font-size:xx-large;
     display: none;
 }
 
@@ -67,16 +91,12 @@ body {
 #time {
     position: absolute;
     /*    bottom: 20px;*/
-    text-align: center;
     width: 300px;
-    font: 3rem sans-serif;
 }
 
 #correct {
     position: absolute;
-    color: lawngreen;
     text-shadow: 0px 0px 10px black;
-    font: 3rem sans-serif;
 }
 
 #checkmark, #wrong {

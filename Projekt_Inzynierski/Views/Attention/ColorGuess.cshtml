@@ -3,7 +3,6 @@
     ViewData["Title"] = "ColorGuess";
 }
 
-<h1>ColorGuess</h1>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +16,7 @@
     <img src="~/img/colorGuess/correct.svg" alt="" id="checkmark">
     <img src="~/img/colorGuess/incorrect.svg" alt="" id="wrong">
     <div class="top">
-        <button id="start" onclick="startGame()">Start</button>
+        <button class="s" id="start" onclick="startGame()">Start</button>
         <div id="color1" class="colorText color1"></div>
         <div id="color2" class="colorText color2"></div>
     </div>
@@ -31,8 +30,8 @@
             <div id="Yellow" class="color yellow"></div>
         </div> 
         <div class="row">
-            <span id="correct"></span>
-            <span id="time"></span>
+           <p class="p">Right anwsers: <span id="correct"></span> </p>
+            <p class="p"> <span id="time"></span> </p>
         </div>
     </div>
     

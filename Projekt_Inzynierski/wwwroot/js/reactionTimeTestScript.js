@@ -39,8 +39,6 @@ function makebox() {
 
 function gameStart() {
     var a = 0;
-    document.getElementById("userAge").style.display = 'none';
-    document.getElementById("userDevice").style.display = 'none';
     document.getElementById("text").style.display = 'none';
     document.getElementById('box').onclick = function () {
         this.style.display = "none";
