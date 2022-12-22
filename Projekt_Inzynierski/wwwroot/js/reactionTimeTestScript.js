@@ -1,7 +1,7 @@
 ﻿var createdTime;
 var clickedTime;
 var reactionTime;
-var testName = "Big green box";
+var testName = "Reaction time test";
 var list = [];
 
 function makebox() {
@@ -61,18 +61,13 @@ document.getElementById("SaveGame").onclick = function () {
             min = list[i];
         }
     }
-    var userAge = document.getElementById("userAge").value;
-    var userDevice = document.getElementById("userDevice").value;
-    console.log(userAge);
     reactionSpan = min * 1000;
     $.ajax({
         url: '@Url.Action("AddRecordToReactionTest", "ReactionTest")',
         type: 'POST',
         data: {
             "span": reactionSpan,
-            "testName": testName,
-            "userAge": userAge,
-            "userDevice": userDevice
+            "testName": testName
         },
         success: function (response) {
             var Data = JSON.parse(response);

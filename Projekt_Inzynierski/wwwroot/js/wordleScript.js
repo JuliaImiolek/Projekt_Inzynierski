@@ -1,6 +1,7 @@
 ﻿import { testDictionary, realDictionary } from './wordleDictionary.js';
 //for testing purposes
 console.log('test dictionary:', testDictionary);
+var testName = "Wordle";
 
 const dictionary = realDictionary;
 const state = {
@@ -102,8 +103,49 @@ function revealWord(guess) {
 
         if (isWinner) {
             alert('Congratulations!');
+            $.ajax({
+                url: '@Url.Action("AddRecordToReactionTest", "ReactionTest")',
+                type: 'POST',
+                data: {
+                    "testName": testName,
+                    "isWinner": isWinner
+                },
+                success: function (response) {
+                    var Data = JSON.parse(response);
+                    alert("Your win has been saved!");
+                },
+                failure: function () {
+                    var Data = JSON.parse(response);
+                    alert(response);
+                },
+                error: function () {
+                    var Data = JSON.parse(response);
+                    alert(response);
+                }
+            })
         } else if (isGameOver) {
+            isWinner = false;
             alert(`Better luck next time! The word was ${state.secret}.`);
+            $.ajax({
+                url: '@Url.Action("AddRecordToReactionTest", "ReactionTest")',
+                type: 'POST',
+                data: {
+                    "testName": testName,
+                    "isWinner": isWinner
+                },
+                success: function (response) {
+                    var Data = JSON.parse(response);
+                    alert("Your best reaction time has been saved!");
+                },
+                failure: function () {
+                    var Data = JSON.parse(response);
+                    alert(response);
+                },
+                error: function () {
+                    var Data = JSON.parse(response);
+                    alert(response);
+                }
+            })
         }
 }
 

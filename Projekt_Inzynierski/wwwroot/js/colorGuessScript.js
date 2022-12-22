@@ -1,4 +1,5 @@
 ﻿var colors = ["Blue", "Red", "Green", "Yellow"];
+var testName = "Color Guess";
 function startGame() {
     setInterval(timer, 1000);
     reset();
@@ -65,6 +66,27 @@ function timer() {
     if (countdown == 0) {
         clearInterval(timer);
         alert("Game Over. Score: " + correctInt);
+        $.ajax({
+            url: '@Url.Action("AddRecordToReactionTest", "ReactionTest")',
+            type: 'POST',
+            data: {
+                "testName": testName,
+                "correctAns": correctInt
+            },
+            success: function (response) {
+                var Data = JSON.parse(response);
+                alert("Your best reaction time has been saved!");
+            },
+            failure: function () {
+                var Data = JSON.parse(response);
+                alert(response);
+            },
+            error: function () {
+                var Data = JSON.parse(response);
+                alert(response);
+            }
+        })
+    
         location.reload();
     }
     countdown--;

@@ -1,4 +1,5 @@
 ﻿const cards = document.querySelectorAll('.memory-card');
+var testName = "Memory";
 var flippedCards = 0
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -41,6 +42,27 @@ function checkForMatch() {
             document.getElementById('time').innerHTML = gameTime;
             document.getElementById('numOfClick').innerHTML = numOfClick;
             alert("Congratulations!");
+            $.ajax({
+                url: '@Url.Action("AddRecordToReactionTest", "ReactionTest")',
+                type: 'POST',
+                data: {
+                    "span": gameTime,
+                    "testName": testName,
+                    "numOfClick": numOfClick
+                },
+                success: function (response) {
+                    var Data = JSON.parse(response);
+                    alert("Your best reaction time has been saved!");
+                },
+                failure: function () {
+                    var Data = JSON.parse(response);
+                    alert(response);
+                },
+                error: function () {
+                    var Data = JSON.parse(response);
+                    alert(response);
+                }
+            })
         }
     } else {
         unflipCards();
