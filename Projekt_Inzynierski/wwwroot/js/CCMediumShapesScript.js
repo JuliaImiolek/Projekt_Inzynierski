@@ -78,12 +78,12 @@ function timer() {
 
         reactionSpan = min * 1000;
         $.ajax({
-            url: '@Url.Action("AddRecordToReactionTest", "ReactionTest")',
+            url: '@Url.Action("AddRecordToModels", "CoordinationModel")',
             type: 'POST',
             data: {
                 "span": reactionSpan,
                 "testName": testName,
-                "clicked": clickedInt
+                "numOfClick": clickedInt
             },
             success: function (response) {
                 var Data = JSON.parse(response);

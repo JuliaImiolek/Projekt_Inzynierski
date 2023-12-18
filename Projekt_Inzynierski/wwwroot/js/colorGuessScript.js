@@ -67,11 +67,11 @@ function timer() {
         clearInterval(timer);
         alert("Game Over. Score: " + correctInt);
         $.ajax({
-            url: '@Url.Action("AddRecordToReactionTest", "ReactionTest")',
+            url: '/Controller/AttentionController',
             type: 'POST',
             data: {
                 "testName": testName,
-                "correctAns": correctInt
+                "numOfClick": correctInt
             },
             success: function (response) {
                 var Data = JSON.parse(response);

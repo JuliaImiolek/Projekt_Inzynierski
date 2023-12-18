@@ -43,7 +43,7 @@ function checkForMatch() {
             document.getElementById('numOfClick').innerHTML = numOfClick;
             alert("Congratulations!");
             $.ajax({
-                url: '@Url.Action("AddRecordToReactionTest", "ReactionTest")',
+                url: '@Url.Action("AddRecordToModels", "MemoryModel")',
                 type: 'POST',
                 data: {
                     "span": gameTime,
