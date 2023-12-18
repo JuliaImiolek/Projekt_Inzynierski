@@ -82,7 +82,7 @@ function timer() {
             data: {
                 "span": reactionSpan,
                 "testName": testName,
-                "clicked": clickedInt
+                "numOfClick": clickedInt
             },
             success: function (response) {
                 var Data = JSON.parse(response);

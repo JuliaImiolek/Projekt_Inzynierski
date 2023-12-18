@@ -104,7 +104,7 @@ function revealWord(guess) {
         if (isWinner) {
             alert('Congratulations!');
             $.ajax({
-                url: '@Url.Action("AddRecordToReactionTest", "ReactionTest")',
+                url: '@Url.Action("AddRecordToModels", "ReasoningModel")',
                 type: 'POST',
                 data: {
                     "testName": testName,
