@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -37,7 +36,6 @@ namespace Projekt_Inzynierski.Controllers
 
         [HttpPost]
         [Route("AddResults")]
-        [Authorize]
         public async Task<IActionResult> AddRecordToModels(string testName, int numOfClick)
         {
             AddRecordToModels model = new AddRecordToModels() {testName = testName, numOfClick = numOfClick };

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Projekt_Inzynierski.Data;
@@ -28,32 +29,34 @@ namespace Projekt_Inzynierski.Controllers
         {
             return View();
         }
-        public IActionResult LevelEasy()
+        public async Task<IActionResult> LevelEasy()
         {
-            return View();
+            return View(await _context.CoordinationTest.ToListAsync());
         }
-        public IActionResult LevelMedium()
+        public async Task<IActionResult> LevelMedium()
         {
-            return View();
+            return View(await _context.CoordinationTest.ToListAsync());
         }
-        public IActionResult LevelHard()
+        public async Task<IActionResult> LevelHard()
         {
-            return View();
+            return View(await _context.CoordinationTest.ToListAsync());
         }
-        public IActionResult MediumShapes()
+        public async Task<IActionResult> MediumShapes()
         {
-            return View();
+            return View(await _context.CoordinationTest.ToListAsync());
         }
-        public IActionResult TinyShapes()
+        public async Task<IActionResult> TinyShapes()
         {
-            return View();
+            return View(await _context.CoordinationTest.ToListAsync());
         }
 
         [HttpPost]
         [Route("AddResults")]
-        public IActionResult AddRecordToModels(string testName, int numOfClick, int span)
+        public async Task<IActionResult> AddRecordToModels(string testName, int numOfClick, int span)
         {
             AddRecordToModels model = new AddRecordToModels() { testName = testName, numOfClick = numOfClick, span = span };
+            var currentUser = await _userManager.GetUserAsync(User);
+
             if (model == null)
             {
                 return BadRequest("Model niepoprawny");
@@ -75,9 +78,12 @@ namespace Projekt_Inzynierski.Controllers
                 Category = "Coordination",
                 GameName = model.testName,
                 NumOfClick = model.numOfClick,
-                ReactionTime = timespan
-       
+                ReactionTime = timespan,
+                ApplicationUserId = currentUser.Id
             };
+
+            await _context.CoordinationTest.AddAsync(coordinationTest);
+            await _context.SaveChangesAsync();
             return Ok(JsonConvert.SerializeObject(new
             {
                 Success = true

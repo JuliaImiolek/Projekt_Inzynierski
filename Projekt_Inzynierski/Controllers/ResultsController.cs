@@ -29,6 +29,42 @@ namespace Projekt_Inzynierski.Controllers
             return View();
         }
 
+        public IActionResult Easy()
+        {
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var founded = _context.CoordinationTest.Where(x => x.ApplicationUserId == id).ToList();
+            var easy = founded.Where(x => x.GameName == "Easy").OrderBy(x => x.ReactionTime).ToList();
+            return View(easy);
+        }
+        public IActionResult Medium()
+        {
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var founded = _context.CoordinationTest.Where(x => x.ApplicationUserId == id).ToList();
+            var easy = founded.Where(x => x.GameName == "Medium").OrderBy(x => x.ReactionTime).ToList();
+            return View(easy);
+        }
+        public IActionResult Hard()
+        {
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var founded = _context.CoordinationTest.Where(x => x.ApplicationUserId == id).ToList();
+            var easy = founded.Where(x => x.GameName == "Hard").OrderBy(x => x.ReactionTime).ToList();
+            return View(easy);
+        }
+        public IActionResult TinyShapes()
+        {
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var founded = _context.CoordinationTest.Where(x => x.ApplicationUserId == id).ToList();
+            var easy = founded.Where(x => x.GameName == "Tine shapes").OrderBy(x => x.ReactionTime).ToList();
+            return View(easy);
+        }
+        public IActionResult MediumShapes()
+        {
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var founded = _context.CoordinationTest.Where(x => x.ApplicationUserId == id).ToList();
+            var easy = founded.Where(x => x.GameName == "Medium shapes").OrderBy(x => x.ReactionTime).ToList();
+            return View(easy);
+        }
+
         public IActionResult Attention()
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);

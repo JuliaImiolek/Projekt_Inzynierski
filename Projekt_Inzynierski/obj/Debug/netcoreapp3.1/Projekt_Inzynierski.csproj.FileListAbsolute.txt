@@ -448,3 +448,8 @@ C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\ne
 C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Results\Attention.cshtml.g.cs
 C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Results\Index.cshtml.g.cs
+C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Results\CLevelEasy.cshtml.g.cs
+C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Results\CLevelHard.cshtml.g.cs
+C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Results\CLevelMedium.cshtml.g.cs
+C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Results\CMediumShapes.cshtml.g.cs
+C:\Users\Julia\source\repos\Projekt_Inzynierski\Projekt_Inzynierski\obj\Debug\netcoreapp3.1\Razor\Views\Results\CTinyShapes.cshtml.g.cs

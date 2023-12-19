@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CoordinationModel>
+
+@{
+    ViewData["Title"] = "MediumShapes";
+
+}
+<h1> Results for Medium Shapes</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Position
+            </th>
+            <th>
+                Time [s]
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{
+            var a = 1;
+        }
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @a
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReactionTime)
+                </td>
+
+            </tr>
+            a++;
+
+        }
+    </tbody>
+</table>

@@ -20,5 +20,6 @@ namespace Projekt_Inzynierski.Data
         }
 
         public DbSet<AttentionModel> AttentionTest { get; set; }
+        public DbSet<CoordinationModel> CoordinationTest { get; set; }
     }
 }
