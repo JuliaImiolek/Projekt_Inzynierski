@@ -86,5 +86,13 @@ namespace Projekt_Inzynierski.Controllers
             List<PerceptionModel> perceptionTest = founded.Where(x => x.GameName == "Perception").ToList();
             return View(perceptionTest);
         }
+
+        public IActionResult Reasononing()
+        {
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var founded = _context.ReasoningTest.Where(x => x.ApplicationUserId == id).ToList();
+            List<ReasoningModel> reasoningTest = founded.Where(x => x.GameName == "Reasoning").ToList();
+            return View(reasoningTest);
+        }
     }
 }

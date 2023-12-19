@@ -11,5 +11,9 @@ namespace Projekt_Inzynierski.Models
         public string Category { get; set; }
         public string GameName { get; set; }
         public bool isWinner { get; set; }
+
+        // User
+        public string ApplicationUserId { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

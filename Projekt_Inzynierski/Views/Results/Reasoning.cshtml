@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ReasoningModel>
+
+@{
+    ViewData["Title"] = "Easy";
+
+}
+<h1> Results for perception</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Winning
+            </th>
+            <th>
+                Lost
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{  var winning = 0;
+            var lost = 0;
+            foreach (var item in Model)
+            {
+
+                if (item.isWinner == true)
+                {
+                    winning++;
+                }
+                else
+                {
+                    lost++;
+                }
+            }
+        }
+            <tr>
+                <td>            
+                    @winning
+                </td>
+                <td>
+                    @lost
+                </td>
+            </tr>
+
+    </tbody>
+</table>
