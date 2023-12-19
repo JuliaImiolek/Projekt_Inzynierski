@@ -37,8 +37,6 @@ namespace Projekt_Inzynierski.Controllers
         [Route("AddRecordToReactionTest")]
         public async Task<IActionResult> AddRecordToReactionTest([FromBody] AddRecordToModels model)
         {
-           // AddRecordToModels model = new AddRecordToModels() {span = span, testName = testName, numOfClick = numOfClick };
-
             var currentUser = await _userManager.GetUserAsync(User);
 
             if (model == null)

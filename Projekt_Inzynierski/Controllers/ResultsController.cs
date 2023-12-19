@@ -54,7 +54,7 @@ namespace Projekt_Inzynierski.Controllers
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var founded = _context.CoordinationTest.Where(x => x.ApplicationUserId == id).ToList();
-            var easy = founded.Where(x => x.GameName == "Tine shapes").OrderBy(x => x.ReactionTime).ToList();
+            var easy = founded.Where(x => x.GameName == "Tiny shapes").OrderBy(x => x.ReactionTime).ToList();
             return View(easy);
         }
         public IActionResult CMediumShapes()
