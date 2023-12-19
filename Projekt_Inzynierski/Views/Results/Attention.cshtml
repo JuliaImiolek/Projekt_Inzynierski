@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AttentionModel>
+
+@{
+    ViewData["Title"] = "AttentionTest";
+
+}
+<h1> Results for Attention test</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Position
+            </th>
+            <th>
+                Correct answers
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{
+            var a = 1;
+        }
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @a
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CorrectAns)
+                </td>
+
+            </tr>
+            a++;
+
+        }
+    </tbody>
+</table>
+
