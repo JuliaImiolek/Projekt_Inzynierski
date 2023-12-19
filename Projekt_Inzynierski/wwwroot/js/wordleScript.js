@@ -103,50 +103,64 @@ function revealWord(guess) {
 
         if (isWinner) {
             alert('Congratulations!');
-            $.ajax({
-                url: '/Controllers/ReasoningController',
-                type: 'POST',
-                data: {
-                    "testName": testName,
-                    "isWinner": isWinner
+            var data = {
+                span: 0,
+                testName: testName,
+                numOfClick: 0,
+                isWinner: isWinner
+            };
+
+            fetch('https://localhost:44393/Reasoning/AddRecordToReactionTest', {
+                method: 'POST',
+                headers:
+                {
+                    'Content-Type': 'application/json',
                 },
-                success: function (response) {
-                    var Data = JSON.parse(response);
-                    alert("Your win has been saved!");
-                },
-                failure: function () {
-                    var Data = JSON.parse(response);
-                    alert(response);
-                },
-                error: function () {
-                    var Data = JSON.parse(response);
-                    alert(response);
+                body: JSON.stringify(data)
+            }).then(function (response) {
+                if (response.ok) {
+                    alert("Your result has been saved!" + response);
+                    return response.json();
                 }
-            })
+                return Promise.reject(response);
+            }).then(data => {
+                console.log('Success:');
+            }).catch(function (error) {
+                console.warn('Errorerror' + error);
+            });
+           
         } else if (isGameOver) {
-            isWinner = false;
             alert(`Better luck next time! The word was ${state.secret}.`);
-            $.ajax({
-                url: '@Url.Action("AddRecordToReactionTest", "ReactionTest")',
-                type: 'POST',
-                data: {
-                    "testName": testName,
-                    "isWinner": isWinner
+            var data = {
+                span: 0,
+                testName: testName,
+                numOfClick: 0,
+                isWinner: false
+            };
+
+            fetch('https://localhost:44393/Reasoning/AddRecordToReactionTest', {
+                method: 'POST',
+                headers:
+                {
+                    'Content-Type': 'application/json',
                 },
-                success: function (response) {
-                    var Data = JSON.parse(response);
-                    alert("Your best reaction time has been saved!");
-                },
-                failure: function () {
-                    var Data = JSON.parse(response);
-                    alert(response);
-                },
-                error: function () {
-                    var Data = JSON.parse(response);
-                    alert(response);
+                body: JSON.stringify(data)
+            }).then(function (response) {
+                if (response.ok) {
+                    alert("Your result has been saved!" + response);
+                    return response.json();
                 }
-            })
+                return Promise.reject(response);
+            }).then(data => {
+                console.log('Success:');
+            }).catch(function (error) {
+                console.warn('Errorerror' + error);
+            });
+  
         }
+
+   
+
 }
 
 function isLetter(key) {

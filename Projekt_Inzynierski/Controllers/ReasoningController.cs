@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace Projekt_Inzynierski.Controllers
 {
+    [Controller]
+    [Route("Reasoning")]
+    [ApiController]
     public class ReasoningController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -24,16 +27,17 @@ namespace Projekt_Inzynierski.Controllers
             _userManager = userManager;
             _logger = logger;
         }
+
+        [HttpGet]
         public async Task<IActionResult> Wordle()
         {
             return View(_context.ReasoningTest.ToListAsync());
         }
 
         [HttpPost]
-        [Route("AddResults")]
-        public async Task<IActionResult> AddRecordToModels(string testName, bool isWinner)
+        [Route("AddRecordToReactionTest")]
+        public async Task<IActionResult> AddRecordToModels([FromBody] AddRecordToModels model)
         {
-            AddRecordToModels model = new AddRecordToModels() { testName = testName, isWinner = isWinner };
             var currentUser = await _userManager.GetUserAsync(User);
             if (model == null)
             {

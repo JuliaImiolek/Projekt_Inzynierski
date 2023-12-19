@@ -7,6 +7,7 @@ var startedTime;
 var endTime;
 var gameTime;
 var numOfClick = 0;
+var testName = "Memory"
 
 function flipCard() {
     if (lockBoard) return;
@@ -44,7 +45,7 @@ function checkForMatch() {
             alert("Congratulations!");
             var data = {
                 span: span,
-                testName: "Memory",
+                testName: testName,
                 numOfClick: numOfClick,
                 isWinner: false
             };

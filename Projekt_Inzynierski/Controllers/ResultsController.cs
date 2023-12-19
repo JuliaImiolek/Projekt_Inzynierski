@@ -76,14 +76,14 @@ namespace Projekt_Inzynierski.Controllers
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var founded = _context.MemoryTest.Where(x => x.ApplicationUserId == id).ToList();
-            List<MemoryModel> memoryTest = founded.Where(x => x.GameName == "Memory").ToList();
+            List<MemoryModel> memoryTest = founded.Where(x => x.Category == "Memory").ToList();
             return View(memoryTest);
         }
         public IActionResult Perception()
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var founded = _context.PerceptionTest.Where(x => x.ApplicationUserId == id).ToList();
-            List<PerceptionModel> perceptionTest = founded.Where(x => x.GameName == "Perception").ToList();
+            List<PerceptionModel> perceptionTest = founded.Where(x => x.Category == "Perception").ToList();
             return View(perceptionTest);
         }
 
@@ -91,7 +91,7 @@ namespace Projekt_Inzynierski.Controllers
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var founded = _context.ReasoningTest.Where(x => x.ApplicationUserId == id).ToList();
-            List<ReasoningModel> reasoningTest = founded.Where(x => x.GameName == "Reasoning").ToList();
+            List<ReasoningModel> reasoningTest = founded.Where(x => x.Category == "Reasoning").ToList();
             return View(reasoningTest);
         }
     }
