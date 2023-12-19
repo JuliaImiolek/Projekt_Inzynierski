@@ -18,5 +18,7 @@ namespace Projekt_Inzynierski.Data
         {
             base.OnModelCreating(builder);
         }
+
+        public DbSet<AttentionModel> AttentionTest { get; set; }
     }
 }

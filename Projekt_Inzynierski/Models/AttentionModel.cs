@@ -15,5 +15,7 @@ namespace Projekt_Inzynierski.Models
         public int CorrectAns { get; set; }
 
         // User
+        public string ApplicationUserId { get; set; }
+        public virtual ApplicationUser ApplicationUser {get; set;}
     }
 }

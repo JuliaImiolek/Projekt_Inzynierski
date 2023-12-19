@@ -8,6 +8,6 @@ namespace Projekt_Inzynierski.Models
 {
     public class ApplicationUser : IdentityUser
     {
-
+        public virtual ICollection<AttentionModel> AttentionTest { get; set; }
     }
 }
