@@ -62,25 +62,30 @@ document.getElementById("SaveGame").onclick = function () {
         }
     }
     reactionSpan = min * 1000;
-    $.ajax({
-        url: '/Controllers/PerceptionController',
-        type: 'POST',
-        data: {
-            "span": reactionSpan,
-            "testName": testName
-        },
-        success: function (response) {
-            var Data = JSON.parse(response);
-            alert("Your best reaction time has been saved!");
-        },
-        failure: function () {
-            var Data = JSON.parse(response);
-            alert(response);
-        },
-        error: function () {
-            var Data = JSON.parse(response);
-            alert(response);
-        }
 
+    var data = {
+        span: reactionSpan,
+        testName: testName,
+        numOfClick: 0,
+        isWinner: false
+    };
+
+    fetch('https://localhost:44393/Perception/AddRecordToReactionTest', {
+        method: 'POST',
+        headers:
+        {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    }).then(function (response) {
+        if (response.ok) {
+            alert("Your best reaction time has been saved!" + response);
+            return response.json();
+        }
+        return Promise.reject(response);
+    }).then(data => {
+        console.log('Success:');
+    }).catch(function (error) {
+        console.warn('Errorerror' + error);
     });
 };

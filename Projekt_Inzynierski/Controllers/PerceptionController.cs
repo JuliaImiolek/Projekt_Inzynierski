@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace Projekt_Inzynierski.Controllers
 {
+    [Controller]
+    [Route("Perception")]
+    [ApiController]
     public class PerceptionController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -25,24 +28,24 @@ namespace Projekt_Inzynierski.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public async Task<IActionResult> ReactionTimeTest()
         {
             return View(await _context.PerceptionTest.ToListAsync());
         }
 
         [HttpPost]
-        [Route("AddResults")]
-        public async Task<IActionResult> AddRecordToModels(string testName, int span)
+        [Route("AddRecordToReactionTest")]
+        public async Task<IActionResult> AddRecordToModels([FromBody] AddRecordToModels model)
         {
-            AddRecordToModels model = new AddRecordToModels() { testName = testName, span = span};
             var currentUser = await _userManager.GetUserAsync(User);
             if (model == null)
             {
                 return BadRequest("Model niepoprawny");
             }
 
-            int seconds = span / 1000;
-            int miliseconds = span - (seconds * 1000);
+            int seconds = model.span / 1000;
+            int miliseconds = model.span - (seconds * 1000);
             int minutes = seconds / 60;
             seconds = seconds - (minutes * 60);
             int hours = minutes / 60;
