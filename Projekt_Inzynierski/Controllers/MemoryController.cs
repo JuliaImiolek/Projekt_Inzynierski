@@ -30,7 +30,7 @@ namespace Projekt_Inzynierski.Controllers
         }
 
         [HttpPost]
-        [Route("AddTimeSpan")]
+        [Route("AddResults")]
         public async Task<IActionResult> AddRecordToReactionTest(int span, string testName, int numOfClick)
         {
             AddRecordToModels model = new AddRecordToModels() {span = span, testName = testName, numOfClick = numOfClick };

@@ -76,8 +76,15 @@ namespace Projekt_Inzynierski.Controllers
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var founded = _context.MemoryTest.Where(x => x.ApplicationUserId == id).ToList();
-            List<MemoryModel> attentionTest = founded.Where(x => x.GameName == "Memory").ToList();
-            return View(attentionTest);
+            List<MemoryModel> memoryTest = founded.Where(x => x.GameName == "Memory").ToList();
+            return View(memoryTest);
+        }
+        public IActionResult Perception()
+        {
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var founded = _context.PerceptionTest.Where(x => x.ApplicationUserId == id).ToList();
+            List<PerceptionModel> perceptionTest = founded.Where(x => x.GameName == "Perception").ToList();
+            return View(perceptionTest);
         }
     }
 }
