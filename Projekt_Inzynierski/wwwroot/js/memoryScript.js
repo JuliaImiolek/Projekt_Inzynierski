@@ -1,5 +1,4 @@
 ﻿const cards = document.querySelectorAll('.memory-card');
-var testName = "Memory";
 var flippedCards = 0
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -39,17 +38,18 @@ function checkForMatch() {
         if (flippedCards === 12) {
             endTime = Date.now();
             gameTime = (endTime - startedTime) / 1000;
+            var span = endTime - startedTime;
             document.getElementById('time').innerHTML = gameTime;
             document.getElementById('numOfClick').innerHTML = numOfClick;
             alert("Congratulations!");
             var data = {
-                span: gameTime,
-                testName: testName,
+                span: span,
+                testName: "Memory",
                 numOfClick: numOfClick,
                 isWinner: false
             };
 
-            fetch('http://localhost:44393/Controllers/Memory/AddRecordToReactionTest', {
+            fetch('https://localhost:44393/Memory/AddRecordToReactionTest', {
                     method: 'POST',
                     headers:
                     {
