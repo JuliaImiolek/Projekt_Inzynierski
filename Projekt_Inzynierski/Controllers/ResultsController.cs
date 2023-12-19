@@ -29,35 +29,35 @@ namespace Projekt_Inzynierski.Controllers
             return View();
         }
 
-        public IActionResult Easy()
+        public IActionResult CLevelEasy()
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var founded = _context.CoordinationTest.Where(x => x.ApplicationUserId == id).ToList();
             var easy = founded.Where(x => x.GameName == "Easy").OrderBy(x => x.ReactionTime).ToList();
             return View(easy);
         }
-        public IActionResult Medium()
+        public IActionResult CLevelMedium()
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var founded = _context.CoordinationTest.Where(x => x.ApplicationUserId == id).ToList();
             var easy = founded.Where(x => x.GameName == "Medium").OrderBy(x => x.ReactionTime).ToList();
             return View(easy);
         }
-        public IActionResult Hard()
+        public IActionResult CLevelHard()
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var founded = _context.CoordinationTest.Where(x => x.ApplicationUserId == id).ToList();
             var easy = founded.Where(x => x.GameName == "Hard").OrderBy(x => x.ReactionTime).ToList();
             return View(easy);
         }
-        public IActionResult TinyShapes()
+        public IActionResult CTinyShapes()
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var founded = _context.CoordinationTest.Where(x => x.ApplicationUserId == id).ToList();
             var easy = founded.Where(x => x.GameName == "Tine shapes").OrderBy(x => x.ReactionTime).ToList();
             return View(easy);
         }
-        public IActionResult MediumShapes()
+        public IActionResult CMediumShapes()
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var founded = _context.CoordinationTest.Where(x => x.ApplicationUserId == id).ToList();
@@ -70,6 +70,13 @@ namespace Projekt_Inzynierski.Controllers
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var founded = _context.AttentionTest.Where(x => x.ApplicationUserId == id).ToList();
             List<AttentionModel> attentionTest = founded.Where(x => x.GameName == "Attention").ToList();
+            return View(attentionTest);
+        }
+        public IActionResult Memory()
+        {
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var founded = _context.MemoryTest.Where(x => x.ApplicationUserId == id).ToList();
+            List<MemoryModel> attentionTest = founded.Where(x => x.GameName == "Memory").ToList();
             return View(attentionTest);
         }
     }

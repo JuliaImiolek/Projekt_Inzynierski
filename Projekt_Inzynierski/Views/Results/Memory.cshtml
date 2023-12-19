@@ -1,10 +1,10 @@
-﻿@model IEnumerable<CoordinationModel>
+﻿@model IEnumerable<MemoryModel>
 
 @{
-    ViewData["Title"] = "Easy";
+    ViewData["Title"] = "Memory";
 
 }
-<h1> Results for Level Easy</h1>
+<h1> Results for memory</h1>
 <table class="table">
     <thead>
         <tr>
@@ -12,10 +12,10 @@
                 Position
             </th>
             <th>
-                Time [s]
+                Number of click
             </th>
             <th>
-                numbr of Clicks
+                Time [s]
             </th>
 
             <th></th>
@@ -35,10 +35,10 @@
                 @a
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ReactionTime)
+                @Html.DisplayFor(modelItem => item.NumOfClick)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NumOfClick)
+                @Html.DisplayFor(modelItem => item.GameTime)
             </td>
 
         </tr>

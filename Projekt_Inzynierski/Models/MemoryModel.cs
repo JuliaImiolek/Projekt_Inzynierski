@@ -14,5 +14,7 @@ namespace Projekt_Inzynierski.Models
         public TimeSpan GameTime { get; set; }
 
         // User
+        public string ApplicationUserId { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }
