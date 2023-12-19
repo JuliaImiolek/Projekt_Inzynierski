@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace Projekt_Inzynierski.Controllers
 {
+    [Controller]
+    [Route("Attention")]
+    [ApiController]
     public class AttentionController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -24,6 +27,7 @@ namespace Projekt_Inzynierski.Controllers
             _userManager = userManager;
             _logger = logger;
         }
+        [HttpGet]
         public async Task<IActionResult> ColorGuess()
         {
             return View(await _context.AttentionTest.ToListAsync());
@@ -35,10 +39,9 @@ namespace Projekt_Inzynierski.Controllers
         }
 
         [HttpPost]
-        [Route("AddResults")]
-        public async Task<IActionResult> AddRecordToModels(string testName, int numOfClick)
+        [Route("AddRecordToReactionTest")]
+        public async Task<IActionResult> AddRecordToModels([FromBody] AddRecordToModels model)
         {
-            AddRecordToModels model = new AddRecordToModels() {testName = testName, numOfClick = numOfClick };
             var currentUser = await _userManager.GetUserAsync(User);
             if (model == null)
             {

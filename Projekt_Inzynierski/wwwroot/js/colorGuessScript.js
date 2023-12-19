@@ -66,26 +66,32 @@ function timer() {
     if (countdown == 0) {
         clearInterval(timer);
         alert("Game Over. Score: " + correctInt);
-        $.ajax({
-            url: '/Controllers/AttentionController',
-            type: 'POST',
-            data: {
-                "testName": testName,
-                "numOfClick": correctInt
+
+        var data = {
+            span: 0,
+            testName: testName,
+            numOfClick: correctInt,
+            isWinner: false
+        };
+
+        fetch('https://localhost:44393/Attention/AddRecordToReactionTest', {
+            method: 'POST',
+            headers:
+            {
+                'Content-Type': 'application/json',
             },
-            success: function (response) {
-                var Data = JSON.parse(response);
-                alert("Your best reaction time has been saved!");
-            },
-            failure: function () {
-                var Data = JSON.parse(response);
-                alert(response);
-            },
-            error: function () {
-                var Data = JSON.parse(response);
-                alert(response);
+            body: JSON.stringify(data)
+        }).then(function (response) {
+            if (response.ok) {
+                alert("Your best reaction time has been saved!" + response);
+                return response.json();
             }
-        })
+            return Promise.reject(response);
+        }).then(data => {
+            console.log('Success:');
+        }).catch(function (error) {
+            console.warn('Errorerror' + error);
+        });
     
         location.reload();
     }

@@ -69,7 +69,7 @@ namespace Projekt_Inzynierski.Controllers
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var founded = _context.AttentionTest.Where(x => x.ApplicationUserId == id).ToList();
-            List<AttentionModel> attentionTest = founded.Where(x => x.GameName == "Attention").ToList();
+            List<AttentionModel> attentionTest = founded.Where(x => x.Category == "Attention").ToList();
             return View(attentionTest);
         }
         public IActionResult Memory()
