@@ -78,7 +78,7 @@ function timer() {
 
         reactionSpan = min * 1000;
         $.ajax({
-            url: '@Url.Action("AddRecordToModels", "CoordinationModel")',
+            url: '/Controllers/CoordinationController',
             type: 'POST',
             data: {
                 "span": reactionSpan,

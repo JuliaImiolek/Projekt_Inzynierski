@@ -17,6 +17,14 @@ namespace Projekt_Inzynierski.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<HomeController> _logger;
+        
+        public PerceptionController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, ILogger<HomeController> logger)
+        {
+            _context = context;
+            _userManager = userManager;
+            _logger = logger;
+        }
+
         public async Task<IActionResult> ReactionTimeTest()
         {
             return View(await _context.PerceptionTest.ToListAsync());

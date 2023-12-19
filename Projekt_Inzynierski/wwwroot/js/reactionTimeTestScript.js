@@ -63,7 +63,7 @@ document.getElementById("SaveGame").onclick = function () {
     }
     reactionSpan = min * 1000;
     $.ajax({
-        url: '@Url.Action("AddRecordToModels", "PerceptionModel")',
+        url: '/Controllers/PerceptionController',
         type: 'POST',
         data: {
             "span": reactionSpan,

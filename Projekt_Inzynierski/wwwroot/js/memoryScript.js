@@ -42,27 +42,33 @@ function checkForMatch() {
             document.getElementById('time').innerHTML = gameTime;
             document.getElementById('numOfClick').innerHTML = numOfClick;
             alert("Congratulations!");
-            $.ajax({
-                url: '@Url.Action("AddRecordToModels", "MemoryModel")',
-                type: 'POST',
-                data: {
-                    "span": gameTime,
-                    "testName": testName,
-                    "numOfClick": numOfClick
-                },
-                success: function (response) {
-                    var Data = JSON.parse(response);
-                    alert("Your best reaction time has been saved!");
-                },
-                failure: function () {
-                    var Data = JSON.parse(response);
-                    alert(response);
-                },
-                error: function () {
-                    var Data = JSON.parse(response);
-                    alert(response);
-                }
-            })
+            var data = {
+                span: gameTime,
+                testName: testName,
+                numOfClick: numOfClick,
+                isWinner: false
+            };
+
+            fetch('http://localhost:44393/Controllers/Memory/AddRecordToReactionTest', {
+                    method: 'POST',
+                    headers:
+                    {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+            }).then(function (response) {
+                    if (response.ok) {
+                        alert("Your best reaction time has been saved!" + response);
+                        return response.json();
+                    }
+                    return Promise.reject(response);
+                }).then(data => {
+                    console.log('Success:' );
+                }).catch(function (error) {
+                    console.warn('Errorerror' + error );
+             });
+             
+
         }
     } else {
         unflipCards();

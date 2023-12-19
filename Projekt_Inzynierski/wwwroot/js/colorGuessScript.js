@@ -67,7 +67,7 @@ function timer() {
         clearInterval(timer);
         alert("Game Over. Score: " + correctInt);
         $.ajax({
-            url: '/Controller/AttentionController',
+            url: '/Controllers/AttentionController',
             type: 'POST',
             data: {
                 "testName": testName,

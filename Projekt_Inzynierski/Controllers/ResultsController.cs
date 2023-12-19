@@ -87,7 +87,7 @@ namespace Projekt_Inzynierski.Controllers
             return View(perceptionTest);
         }
 
-        public IActionResult Reasononing()
+        public IActionResult Reasoning()
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var founded = _context.ReasoningTest.Where(x => x.ApplicationUserId == id).ToList();

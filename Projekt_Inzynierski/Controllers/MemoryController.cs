@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace Projekt_Inzynierski.Controllers
 {
+    [Controller]
+    [Route("Memory")]
+    [ApiController]
     public class MemoryController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -24,16 +27,17 @@ namespace Projekt_Inzynierski.Controllers
             _userManager = userManager;
             _logger = logger;
         }
+        [HttpGet]
         public async Task<IActionResult> Memory()
         {
             return View(await _context.MemoryTest.ToListAsync());
         }
 
         [HttpPost]
-        [Route("AddResults")]
-        public async Task<IActionResult> AddRecordToReactionTest(int span, string testName, int numOfClick)
+        [Route("AddRecordToReactionTest")]
+        public async Task<IActionResult> AddRecordToReactionTest([FromBody] AddRecordToModels model)
         {
-            AddRecordToModels model = new AddRecordToModels() {span = span, testName = testName, numOfClick = numOfClick };
+           // AddRecordToModels model = new AddRecordToModels() {span = span, testName = testName, numOfClick = numOfClick };
 
             var currentUser = await _userManager.GetUserAsync(User);
 
@@ -42,8 +46,8 @@ namespace Projekt_Inzynierski.Controllers
                 return BadRequest("Model niepoprawny");
             }
 
-            int seconds = span / 1000;
-            int miliseconds = span - (seconds * 1000);
+            int seconds = model.span / 1000;
+            int miliseconds = model.span - (seconds * 1000);
             int minutes = seconds / 60;
             seconds = seconds - (minutes * 60);
             int hours = minutes / 60;
