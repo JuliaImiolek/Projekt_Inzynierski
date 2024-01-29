@@ -119,7 +119,7 @@ function revealWord(guess) {
                 body: JSON.stringify(data)
             }).then(function (response) {
                 if (response.ok) {
-                    alert("Your result has been saved!" + response);
+                    alert("Your result has been saved!");
                     return response.json();
                 }
                 return Promise.reject(response);
@@ -147,7 +147,7 @@ function revealWord(guess) {
                 body: JSON.stringify(data)
             }).then(function (response) {
                 if (response.ok) {
-                    alert("Your result has been saved!" + response);
+                    alert("Your result has been saved!");
                     return response.json();
                 }
                 return Promise.reject(response);

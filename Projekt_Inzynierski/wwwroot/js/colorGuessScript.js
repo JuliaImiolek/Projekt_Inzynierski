@@ -1,6 +1,7 @@
 ﻿var colors = ["Blue", "Red", "Green", "Yellow"];
 var testName = "Color Guess";
 function startGame() {
+    document.getElementById("text").style.display = 'none';
     setInterval(timer, 1000);
     reset();
 }

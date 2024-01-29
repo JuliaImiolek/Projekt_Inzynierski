@@ -12,9 +12,16 @@
     <link rel="icon" href="~/img/colorGuess/fav.png">
 </head>
 
+
 <body>
+
     <img src="~/img/colorGuess/correct.svg" alt="" id="checkmark">
     <img src="~/img/colorGuess/incorrect.svg" alt="" id="wrong">
+    <div id="text">
+        <h1>Color Guess</h1>
+        <h2>Choose as many as you can in 30 sec ;)</h2>
+        <h4>Choose the color that combines the two displayed words.</h4>
+    </div>
     <div class="top">
         <button class="s" id="start" onclick="startGame()">Start</button>
         <div id="color1" class="colorText color1"></div>
@@ -28,13 +35,13 @@
         <div class="row">
             <div id="Green" class="color green"></div>
             <div id="Yellow" class="color yellow"></div>
-        </div> 
+        </div>
         <div class="row">
-           <p class="p">Right anwsers: <span id="correct"></span> </p>
+            <p class="p">Right anwsers: <span id="correct"></span> </p>
             <p class="p"> <span id="time"></span> </p>
         </div>
     </div>
-    
+
 
     <script src="~/js/colorGuessScript.js"></script>
 </body>

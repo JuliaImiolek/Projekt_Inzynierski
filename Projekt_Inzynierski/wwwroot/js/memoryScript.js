@@ -59,7 +59,7 @@ function checkForMatch() {
                     body: JSON.stringify(data)
             }).then(function (response) {
                     if (response.ok) {
-                        alert("Your best reaction time has been saved!" + response);
+                        alert("Your time and number of click has been saved!");
                         return response.json();
                     }
                     return Promise.reject(response);

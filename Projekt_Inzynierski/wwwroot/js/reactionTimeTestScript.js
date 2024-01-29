@@ -79,7 +79,7 @@ document.getElementById("SaveGame").onclick = function () {
         body: JSON.stringify(data)
     }).then(function (response) {
         if (response.ok) {
-            alert("Your best reaction time has been saved!" + response);
+            alert("Your best reaction time has been saved!");
             return response.json();
         }
         return Promise.reject(response);

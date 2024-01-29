@@ -33,6 +33,7 @@ body {
     border-radius: 0.3rem;
     margin: 1rem auto;
     display: block;
+    width: 600px;
     background-color: lightgrey;
 }
 

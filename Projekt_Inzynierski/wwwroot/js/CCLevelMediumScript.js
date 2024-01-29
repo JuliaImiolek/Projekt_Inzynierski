@@ -99,7 +99,7 @@ function timer() {
         }).catch(function (error) {
             console.warn('Errorerror' + error);
         });
-        location.reload();
+       
     }
     countdown--;
 }
