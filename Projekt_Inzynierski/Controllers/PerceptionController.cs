@@ -60,7 +60,7 @@ namespace Projekt_Inzynierski.Controllers
                 Category = "Perception",
                 GameName = model.testName,
                 ReactionTime = timespan,
-                ApplicationUserId = currentUser.Id
+                ApplicationUserId = currentUser?.Id ?? string.Empty
             };
 
             await _context.PerceptionTest.AddAsync(perceptionTest);

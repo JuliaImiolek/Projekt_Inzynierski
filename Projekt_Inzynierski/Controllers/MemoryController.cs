@@ -56,7 +56,7 @@ namespace Projekt_Inzynierski.Controllers
             MemoryModel reactionTest = new MemoryModel()
             {
                 Id = Guid.NewGuid().ToString(),
-                ApplicationUserId = currentUser.Id,
+                ApplicationUserId = currentUser?.Id ?? string.Empty,
                 Category = "Memory",
                 GameName = model.testName,
                 NumOfClick = model.numOfClick,

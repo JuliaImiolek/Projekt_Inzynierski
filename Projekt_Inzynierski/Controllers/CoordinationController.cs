@@ -87,7 +87,7 @@ namespace Projekt_Inzynierski.Controllers
                 GameName = model.testName,
                 NumOfClick = model.numOfClick,
                 ReactionTime = timespan,
-                ApplicationUserId = currentUser.Id
+                ApplicationUserId = currentUser?.Id ?? string.Empty 
             };
 
             await _context.CoordinationTest.AddAsync(coordinationTest);

@@ -53,7 +53,7 @@ namespace Projekt_Inzynierski.Controllers
                 Category = "Attention",
                 GameName = model.testName,
                 CorrectAns = model.numOfClick,
-                ApplicationUserId = currentUser.Id
+                ApplicationUserId = currentUser?.Id ?? string.Empty
             };
 
             await _context.AttentionTest.AddAsync(attentionTest);

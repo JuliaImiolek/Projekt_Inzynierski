@@ -48,7 +48,7 @@ namespace Projekt_Inzynierski.Controllers
                 Id = Guid.NewGuid().ToString(),
                 Category = "Reasoning",
                 GameName = model.testName,
-                ApplicationUserId = currentUser.Id,
+                ApplicationUserId = currentUser?.Id ?? string.Empty,
                 isWinner = model.isWinner 
             };
 
